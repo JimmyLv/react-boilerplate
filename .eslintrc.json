@@ -1,0 +1,70 @@
+{
+  "parser": "babel-eslint",
+  "root": true,
+  "extends": [
+    "airbnb",
+    "plugin:flowtype/recommended"
+  ],
+  "installedESLint": true,
+  "plugins": [
+    "react",
+    "immutable",
+    "flowtype",
+    "flowtype-errors"
+  ],
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "global-require": 0,
+    "comma-dangle": 0,
+    "semi": [2, "never"],
+    "max-len": 0,
+    "eol-last": 0,
+    "no-underscore-dangle": 0,
+    "quote-props": 0,
+    "consistent-return": 0,
+    "no-trailing-spaces": 0,
+    // react
+    "react/jsx-space-before-closing": 0,
+    "react/jsx-no-bind": 0,
+    // immutable
+    "immutable/no-let": 2,
+    //    "immutable/no-this": 2,
+    //    "immutable/no-mutation": 2
+    // flowtype
+    "flowtype-errors/show-errors": 2,
+    "flowtype/boolean-style": [2, "boolean"],
+    "flowtype/define-flow-type": 1,
+    "flowtype/delimiter-dangle": [2, "boolean"],
+    "flowtype/generic-spacing": [2, "never"],
+    //    "flowtype/no-weak-types": 2,
+    //    "flowtype/require-parameter-type": 2,
+    //    "flowtype/require-return-type": [
+    //      2, "always",
+    //      {
+    //        "annotateUndefined": "never"
+    //      }
+    //    ],
+    "flowtype/require-valid-file-annotation": 2,
+    "flowtype/semi": [2, "never"],
+    "flowtype/space-after-type-colon": [2, "always"],
+    "flowtype/space-before-generic-bracket": [2, "never"],
+    "flowtype/space-before-type-colon": [2, "boolean"],
+    //    "flowtype/type-id-match": [2, "^([A-Z][a-z0-9]+)+Type$"],
+    "flowtype/union-intersection-spacing": [2, "always"],
+    "flowtype/use-flow-type": 1,
+    "flowtype/valid-syntax": 1
+  }
+}
