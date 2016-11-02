@@ -14,7 +14,6 @@
     "lint:flow": "flow; test $? -eq 0 -o $? -eq 2",
     "lint:fix": "eslint --fix src/. --ext .jsx --ext .js; exit 0",
     "test": "karma start --single-run=true",
-    "test:codecov": "cat coverage/*/lcov.info | codecov",
     "push": "cd dist; git init; git add -A; timestamp=$(date \"+%c\") && git commit -m \"Automated deployment at $timestamp\"; git push -f https://github.com/JimmyLv/react-boilerplate.git master:gh-pages",
     "deploy": "npm run build && npm run push",
     "start": "npm run clean && npm run build && jekyll serve"
