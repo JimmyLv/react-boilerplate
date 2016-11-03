@@ -16,7 +16,6 @@ const isProd = process.env.NODE_ENV === 'production'
 const PATHS = {
   app: path.join(__dirname, 'src/index.jsx'),
   build: path.join(__dirname, 'dist'),
-  // publicPath: '//oesam4fld.qnssl.com/'
   publicPath: './'
 }
 
@@ -56,7 +55,7 @@ const config = {
   stats: { children: false },
   entry: {
     app: PATHS.app,
-    vendor: [
+    lib: [
       // react
       'react',
       'react-dom',
@@ -98,7 +97,7 @@ const config = {
       threads: 5
     }),
     new CopyWebpackPlugin([{ from: 'cache-polyfill.js' }]),
-    new CommonsChunkPlugin('vendor', 'vendor.js'),
+    new CommonsChunkPlugin('lib', 'lib.js'),
     new ExtractTextPlugin('[name].css'),
     new HtmlWebpackPlugin({ // 根据模板插入css/js等生成最终HTML
       favicon: 'favicon.ico', // favicon路径，通过webpack引入同时可以生成hash值
@@ -106,7 +105,7 @@ const config = {
       template: './index.html', // html模板路径
       inject: 'body', // js插入的位置，true/'head'/'body'/false
       hash: !!isProd, // 为静态资源生成hash值
-      chunks: ['vendor', 'app'], // 需要引入的chunk，不配置就会引入所有页面的资源
+      chunks: ['lib', 'app'], // 需要引入的chunk，不配置就会引入所有页面的资源
     })
   ],
   
@@ -148,7 +147,7 @@ if (isProd) {
     inline: true,
     progress: true,
     stats: { children: false, chunks: false, colors: true, reasons: false },
-    port: 3000
+    port: 8080
   }
   config.plugins.push(
     new webpack.HotModuleReplacementPlugin()
