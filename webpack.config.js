@@ -107,8 +107,7 @@ const config = {
       inject: 'body', // js插入的位置，true/'head'/'body'/false
       hash: !!isProd, // 为静态资源生成hash值
       chunks: ['vendor', 'app'], // 需要引入的chunk，不配置就会引入所有页面的资源
-    }),
-    new SWPrecacheWebpackPlugin(SW_PRECACHE_CONFIG)
+    })
   ],
   
   resolve: {
@@ -132,15 +131,16 @@ if (isProd) {
         warnings: false
       }
     }),
-    new webpack.optimize.OccurenceOrderPlugin()
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new SWPrecacheWebpackPlugin(SW_PRECACHE_CONFIG)
   )
 } else {
   config.entry.app = [
-    'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
+    'webpack-dev-server/client?http://0.0.0.0:3000', // WebpackDevServer host and port
     'webpack/hot/only-dev-server',
     PATHS.app
   ]
-  config.devtool = 'cheap-module-eval-source-map'
+  config.devtool = 'eval-source-map'
   config.devServer = {
     contentBase: PATHS.build,
     historyApiFallback: true,
@@ -148,7 +148,7 @@ if (isProd) {
     inline: true,
     progress: true,
     stats: { children: false, chunks: false, colors: true, reasons: false },
-    port: 8080
+    port: 3000
   }
   config.plugins.push(
     new webpack.HotModuleReplacementPlugin()

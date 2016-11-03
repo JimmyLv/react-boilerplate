@@ -2,7 +2,7 @@ import React from 'react'
 
 export default ({ children }) => (
   <div>
-    <h2>Hello Blog!</h2>
+    <h2>Not Found!</h2>
     {children}
   </div>
 )

@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading-bar'
 
-import './AppContainer.less'
 import type { Guy } from '../constants/state.flow'
 import { Navigation } from '../components'
 
@@ -15,11 +14,9 @@ type PropsType = {
 const menusProps = {
   selected: 'Blog',
   menus: [
-    { name: 'Hello', link: '/hello' },
-    { name: 'About', link: '/about' },
     { name: 'Blog', link: '/blog' },
     { name: 'Photo', link: '/photo' },
-    { name: 'Zhihu', link: '/routes/zhihu' }
+    { name: 'About', link: '/about' }
   ]
 }
 
@@ -27,8 +24,8 @@ const AppContainer =
   ({ names, dispatch, children }: PropsType) => (
     <div className="main-app">
       <LoadingBar />
-      <Navigation {...menusProps}/>
-      <h1>Welcome {names.join(' & ')}</h1>
+      <Navigation {...menusProps} />
+      <h1>Welcome {names.join(' & ')} !</h1>
       {children}
     </div>
   )

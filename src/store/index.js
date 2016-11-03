@@ -6,25 +6,23 @@ import { routerMiddleware } from 'react-router-redux'
 import { loadingBarMiddleware } from 'react-redux-loading-bar'
 import throttle from 'lodash/throttle'
 
-// Apply the middleware to the store
 import rootSaga from '../saga'
 import rootReducer from '../reducers'
 import { loadState, saveState } from './localStorage'
-import configDevTools from '../config/DevTools'
 
 const sagaMiddleware = createSagaMiddleware()
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const store = window.store = createStore(
   rootReducer,
   loadState(),
-  compose(
+  composeEnhancers(
     applyMiddleware(
       routerMiddleware(hashHistory),
       loadingBarMiddleware(),
       sagaMiddleware,
       createLogger()
-    ),
-    configDevTools()
+    )
   )
 )
 

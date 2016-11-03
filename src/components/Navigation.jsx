@@ -14,12 +14,13 @@ const Navigation = ({ menus, selected }: PropsType) => (
   <div className="menu m-hide">
     {menus.map((menu, index) => (
       <Link
+        style={{ margin: '5px'}}
         key={index}
         className={classnames({ 'active': selected.includes(menu.link) })}
         to={menu.link}
-      > {menu.name} </Link>)
+      >{menu.name}</Link>)
     )}
-    <a href="https://github.com/JimmyLv/nobackend.website" target="_blank">GitHub</a>
+    <strong><a href="https://github.com/JimmyLv/nobackend.website" target="_blank">GitHub</a></strong>
   </div>
 )
 
