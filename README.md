@@ -9,7 +9,7 @@ Status](https://img.shields.io/david/dev/JimmyLv/react-boilerplate.svg?style=fla
 ```bash
 npm install # properly use cnpm if you are in China
 
-npm run dev # open http://localhost:8080/
+npm run serve # open http://localhost:3000/
 ```
 
 ## Thanks to
